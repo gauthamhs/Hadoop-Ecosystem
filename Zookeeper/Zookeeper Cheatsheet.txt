@@ -1,0 +1,68 @@
+** This is a simple cheatsheet as to how to use Zookeeper Command Line Interface in Hadoop. **
+
+Type the following command:
+
+hbase zkcli
+
+a) To view the z-nodes of the zookeeper:
+
+ls /
+
+b) To view the child nodes.
+
+ls /(z-node)
+
+eg: ls /gautham
+
+c) Creating a z-node(persistent):
+
+create /(z-node)/ '(Message)'
+
+eg: create /gautham 'This_is_a_fun_tutorial'
+
+Note: Don't put space inside the message if you want to see the message completely.
+
+d) Get the message info( i.e., 'This_is_a_fun_tutorial')
+
+get /(z-node)
+Eg: get /gautham
+
+e) Creating a child for a z-node:-
+
+i) Without Watcher(No zookeeper notification) :
+
+create /(z-node)/(child_1)
+
+eg: create /gautham/aarav
+
+ii) With Watcher( Zookeeeper Notification):
+
+create /(z-node)/(child_2) true
+
+eg: create /gautham/anush true 
+
+Note: This will provide a notification only once. You have to assign true each time you create a child if you want to
+receive a notification
+
+Also, if you want to enter a message while entering a watcher, you can use the following hack:
+
+ls /(z-node) true
+create /(z-node)/(child_2) 'Message'
+
+Eg: ls /gautham true
+    create /gautham/anush 'this_is_my_second_child'
+
+f) Creating an ephemeral(temporary z-node) :
+create -e /(z-node) 'Message'
+eg: create -e /zebra 'I_am_an_ephemeral_node_and_cant_have_children'
+
+Note: Ephemeral z-nodes cannot have children.
+
+g) Creating a ephimeral children for z-nodes:
+
+create -e /(z-node)/(ephemeral_child) 'Message'
+
+create -e /gautham/lollipop 'I_am_gauthams_child_and_I_cannot_have_children_as_I_am_ephemeral'
+
+Note: to enable watcher,use ls /gautham true and then create an ephemeral child.
+
