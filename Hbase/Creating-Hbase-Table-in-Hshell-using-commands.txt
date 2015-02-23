@@ -1,0 +1,38 @@
+** Understanding how H-base Works **
+
+1) Create table and the respective column family :
+
+create 'superheroes','marvel'
+
+2) Enter columns and values into the column family:
+
+put 'superheroes','ironman','marvel:c1','genius'
+put 'superheroes','hulk','marvel:c2','powerful'
+put 'superheroes','thor','marvel:c3','strong'
+
+3) Display the details:
+
+scan 'superheroes'
+
+4) Add an additional value into an additional column in ironman rowkey
+
+put 'superheroes','ironman','marvel:c2','techie'
+
+5) Replace the value in column 1 in ironman rowkey with intel
+
+put 'superheroes','ironman','marvel:c1','intel'
+
+6) Get the value of the ironman rowkey
+
+get 'superheroes','ironman'
+
+7) To drop a table, you have to disable it first. So do the following :
+
+disable 'superheroes'
+drop 'superheroes'
+
+Additional :-
+
+Getting timestamps and values from previous versions :
+
+get 'cities','california',{COLUMN=>'west_coast:cost',VERSIONS=>2}
