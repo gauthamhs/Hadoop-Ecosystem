@@ -1,0 +1,33 @@
+
+Note:Before starting oozie download Ext 2.2 for the oozie web console from the following link:
+
+https://oozie.apache.org/docs/3.2.0-incubating/DG_QuickStart.html
+
+and add it to oozie path at /usr/lib/oozie/ . 
+
+Change the Directory to /usr/lib/oozie before running any commands.
+
+After that, run the following commands :
+
+sudo -u oozie /usr/lib/oozie/bin/oozie-setup.sh -extjs /usr/lib/oozie/ext-2.2.zip 
+
+1) To check the status of Oozie, whether normal, running or stopped:
+
+oozie admin -oozie http://localhost:11000/oozie -status
+
+2) To give user the permission to access all oozie directories:
+
+sudo chown -R oozie:oozie /usr/lib/oozie
+
+3) To start oozie:
+
+sudo -u oozie bin/oozie-start.sh
+
+3) To stop oozie when it is running :
+
+sudo -u oozie bin/oozie-stop.sh
+
+4) Check the oozie webconsole: 
+
+http://localhost:11000/oozie/
+
