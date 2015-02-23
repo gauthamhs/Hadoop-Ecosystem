@@ -1,0 +1,5 @@
+** Use this command to load a tab-seperated file from the /usr/lib/hbase directory(current working directory). 
+** Before doing so, you must create a table in hbase. 
+** In this example, the table is friends and the column family is cf. Cheers !
+
+bin/hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns=HBASE_ROW_KEY,cf:first_name,cf:last_name friends /home/cloudera/Desktop/Hbase/Hbase_Input_Files/simple.tsv 
