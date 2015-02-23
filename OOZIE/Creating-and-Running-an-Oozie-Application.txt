@@ -1,0 +1,18 @@
+1) Creating an Oozie Job: 
+
+a) Create a Directory for an Oozie Job. 
+   An Oozie Job Directory must have lib(where the application is placed),workflow.xml,job.properties.
+
+b) Write the required Application(Pig,Hive,Mapreduce) and convert it into a jar file.
+
+c) Place this jar file to the lib folder(Create it first) in the oozie job directory.
+
+d) Write the job.properties and workflow.xml in the Oozie Job directory.
+
+e) Move the oozie directory to HDFS.
+
+2) Running an Oozie Job: 
+
+a) oozie job -oozie http://locahost:11000/oozie -config job.properties -run
+(Job Properties must be specified in the local path(LINUX).
+
