@@ -1,0 +1,7 @@
+bin/sqoop export --connect jdbc:oracle:thin:system/system@192.168.73.1:1521:xe 
+--username system -P --table XX_IRS_JAN_SQOOP 
+--export-dir /sqoop/Jan_Table/sqoop_output/ -m 1
+
+Note: Run this from /usr/lib/sqoop.
+      Username and password is of Oracle SQL.
+      -P: Password entered at the command line. You can also enter as -- password your_password.(Not Recommended).
