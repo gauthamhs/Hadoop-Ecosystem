@@ -61,7 +61,7 @@ public class MapReduceWordCount {
 			StringTokenizer tokenizer = new StringTokenizer(Line); 
 			while(tokenizer.hasMoreTokens()){
 				value.set(tokenizer.nextToken());//Divides the line into token(Creates a record 
-				                                 //for each word and sets the value accordingly.)
+				                                 //for each word) and sets the value accordingly.
 				output.collect(value, new IntWritable(1));  //Collecting Output from the Mapper.
 			}	
 		}	
